@@ -43,6 +43,9 @@ def getProfile(request):
 	else:
 		return JsonResponse({'error':'2','error_message':'incorect request'})
 
-#def setProfile():
-	
+"""def setProfile(request):
+	if 'id_client' in request.POST and request.POST['id_client']!='':
+		idClient = request.POST['id_client']
+		if 'first_name' in request.POST and request.POST['']:
+			pass"""
 # Create your views here.
