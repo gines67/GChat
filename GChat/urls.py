@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^login/', views.login),
     url(r'^registration/',views.registration),
     url(r'^getprofile/', views.getProfile),
-   # url(r'^setprofile', views.setProfile),
+    url(r'^setprofile', views.setProfile),
 ]
