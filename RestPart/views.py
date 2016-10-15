@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from RestPart.models import RoomCircle, RoomRect
 from django.contrib.auth.models import User
 from django.contrib import auth
 
@@ -26,11 +27,15 @@ def registration(request):
 			user = User.objects.get(username = login)
 			return JsonResponse({'error':'3','error_message':'login take'})
 		except User.DoesNotExist:
-			user =User.objects.create_user(username=login, password = password, email =email)
-			user.is_active = True
-			user.save()
-			getID = User.objects.get(username = login)
-			return JsonResponse({'id_client':getID.id,'error':'0'})
+			try:
+				user = User.objects.get(email=email)
+				return JsonResponse({'error':'4','error_message':'email take'})
+			except User.DoesNotExist:
+				user =User.objects.create_user(username=login, password = password, email =email)
+				user.is_active = True
+				user.save()
+				getID = User.objects.get(username = login)
+				return JsonResponse({'id_client':getID.id,'error':'0'})
 			
 	else:
 		return JsonResponse({'error':'2','error_message':'incorect request'})
