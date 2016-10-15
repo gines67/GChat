@@ -28,7 +28,7 @@ def registration(request):
 			return JsonResponse({'error':'3','error_message':'login take'})
 		except User.DoesNotExist:
 			try:
-				user = User.objects.get(email=email)
+				user = User.objects.get(email = email)
 				return JsonResponse({'error':'4','error_message':'email take'})
 			except User.DoesNotExist:
 				user =User.objects.create_user(username=login, password = password, email =email)

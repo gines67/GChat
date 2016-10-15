@@ -126,8 +126,8 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'asgi_redis.RedisChannelLayer',
         'CONFIG': {
-            #'hosts': [('192.168.43.72', 6379)],
-            'hosts': [('localhost', 6379)],
+            'hosts': [('192.168.43.72', 6379)],
+            #'hosts': [('localhost', 6379)],
         },
         'ROUTING': 'GChat.routing.channel_routing',
     },
